@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEATHER</title>
+    <link rel="stylesheet" href="css/weather.css">
+</head>
+<body>
+    
+    <div class="bg">
+
+        <!-- <h1>이날씨</h1> -->
+
+        <div class="search">
+            <div class="s-txt">
+                <input type="search" placeholder=" public / city" id="input">
+            </div>        
+                <input type="button" value="Q" title="submit" id="s-btn">
+        </div>
+
+        <div id="weather_info">
+            <h1 class="city"></h1>
+            <section>
+                <figure class="icon"></figure>
+                <p class="w_id"></p>
+                <p class="temp"></p>
+                <aside>
+                    <p class="temp_max"></p>
+                    <p class="temp_min"></p>
+                </aside>
+            </section>
+        </div>
+
+        <div class="floor1"></div>
+        <div class="floor2"></div>
+
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/weather.js"></script>
+
+</body>
+</html>
