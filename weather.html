@@ -4,22 +4,77 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WEATHER</title>
+    <title>WeatheRader</title>
     <link rel="stylesheet" href="css/weather.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
 </head>
 <body>
     
-    <div class="bg">
-        <!-- <h1>이날씨</h1> -->
+    <div class="wrap">
 
+        <h1 class="symbol_logo">WR</h1>
+        <h1 class="text_logo">WeatheRader</h1>
+        
+        <!-- weather effects -->
+
+        <!-- sun -->
+        <div class="sun"></div>
+
+        <!-- clouds -->
+        <img src="images/cloud1.png" alt="" class="cloud1 clouds">
+        <img src="images/cloud2.png" alt="" class="cloud2 clouds">
+
+        <!-- dark clouds -->
+        <img src="images/dark_cloud1.png" alt="" class="d_cloud1 d_clouds">
+        <img src="images/dark_cloud2.png" alt="" class="d_cloud2 d_clouds">
+
+        <!-- smog (mist) -->
+        <img src="images/smog1.png" alt="" class="smog">
+        <img src="images/smog2.png" alt="" class="smog">
+        <img src="images/smog1.png" alt="" class="smog">
+        <img src="images/smog2.png" alt="" class="smog">
+
+        <!-- rain -->
+        <div class="rain"></div>
+
+        <!-- snowflakes -->
+        <div class="snowflakes" aria-hidden="true">
+            <div class="snowflake">●</div>
+            <div class="snowflake">●</div>
+            <div class="snowflake">●</div>
+            <div class="snowflake">●</div>
+            <div class="snowflake">●</div>
+            <div class="snowflake">●</div>
+            <div class="snowflake">●</div>
+            <div class="snowflake">●</div>
+            <div class="snowflake">●</div>
+            <div class="snowflake">●</div>
+          </div>
+
+        <!-- stars -->
+        <div class="stars">
+            <div class="star1 star"></div>
+            <div class="star2 star"></div>
+            <div class="star3 star"></div>
+            <div class="star4 star"></div>
+            <div class="star5 star"></div>
+            <div class="star6 star"></div>
+            <div class="star7 star"></div>
+            <div class="star8 star"></div>
+            <div class="star9 star"></div>
+        </div>
+
+        <!-- search input -->
         <div class="search">
             <div class="s-txt">
                 <input type="search" placeholder=" public / city" id="input">
             </div>        
-
-            <input type="submit" value="Q" id="s-btn">
+            <button id="s-btn">
+                <i class="fas fa-search"></i>
+            </button>
         </div>
-
+        
+        <!-- weather information -->
         <div id="weather_info">
             <h1 class="city"></h1>
             <section>
@@ -30,11 +85,18 @@
                     <p class="temp_max"></p>
                     <p class="temp_min"></p>
                 </aside>
+                <div class="hourly"></div>
+                <div class="daily"></div>
             </section>
         </div>
 
+        <!-- background color -->
+        <div id="bg"></div>
+
+        <!-- grass -->
         <img src="images/grass1.png" alt="" class="grass1">
         <img src="images/grass2.png" alt="" class="grass2">
+        
 
     </div>
 
