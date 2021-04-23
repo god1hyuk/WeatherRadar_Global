@@ -7,29 +7,30 @@
 body {
     color: #000;
     font-family: monospace;
+    -ms-overflow-style: none;
 }
+::-webkit-scrollbar {
+    display: none;
+}
+
 
 a{
     text-decoration: none;
     color: inherit;
 }
 
-
-input {
-    appearance: none;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    border-radius: 0;
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-}
-
 /* reset css */
 
 .wrap {
-    position: relative;
+    position: fixed;
     width: 100%;
+    height: 100vh;
     overflow: hidden;
+}
+
+#bg_intro > img {
+    width: 100%;
+    height: 100vh;
 }
 
 #bg > img {
@@ -88,20 +89,18 @@ input {
 .clouds {
     position: absolute;
     animation: clouds_move 3s ease-in-out infinite;
-    z-index: 998;
+    z-index: 995;
     display: none;
 }
 .cloud1 {
     top: 5vh;
     left: 4%;
     width: 600px;
-    /* opacity: 80%; */
 }
 .cloud2 {
     top: 10vh;
     right: 4%;
     width: 450px;
-    /* opacity: 80%; */
 }
 
 /* dark clouds */
@@ -109,7 +108,7 @@ input {
 .d_clouds {
     position: absolute;
     animation: clouds_move 3s ease-in-out infinite;
-    z-index: 998;
+    z-index: 995;
     display: none;
 }
 .d_cloud1 {
@@ -151,7 +150,7 @@ input {
 .rain {
     position: absolute;
     /* right: 92%; */
-    z-index: 997 !important;
+    z-index: 996;
     display: none;
 }
 
@@ -180,7 +179,7 @@ input {
 .snowflakes {
     position: absolute;
     display: none;
-    z-index: 997;
+    z-index: 996;
 }
 .snowflake {
     /* position: absolute; */
@@ -242,7 +241,7 @@ input {
     bottom: -100px;
     left: -10%;
     width: 70%;
-    z-index: 996;
+    z-index: 995;
     animation: grass1 12s ease-in-out infinite;
 }
 .grass2 {
@@ -251,7 +250,7 @@ input {
     bottom: -100px;
     right: -10%;
     width: 70%;
-    z-index: 996;
+    z-index: 995;
     animation: grass2 15s ease-in-out infinite;
 }
 
@@ -270,6 +269,7 @@ input {
     75% { transform: skewX(5deg); }
     100% { transform: skewX(0deg); }
 }
+
 
 /* search input */
 
@@ -345,16 +345,31 @@ input {
 }
 
 
-/* weather information */
 
-#weather_info {
+/* weather main */
+
+.swiper-container {
     position: absolute;
-    top: 12%;
-    left: 50%;
     width: 100%;
-    transform: translateX(-50%);
-    opacity: 0;
-    z-index: 998 !important;
+    height: 100%;
+    z-index: 996;
+}
+.swiper-slide {
+    width: 100%;
+    height: 100vh;
+    z-index: 997;
+}
+
+#weather_main {
+    width: 100%;
+    margin-top: 10vh;
+    z-index: 999 !important;
+    animation: w_main 1.3s linear;
+}
+
+@keyframes w_main {
+    from {opacity: 0;}
+    to {opacity: 1;}
 }
 
 .city {
@@ -364,10 +379,31 @@ input {
     padding-top: 20px;
 }
 
+.time .fullDate {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding-top: 20px;
+}
+.time .fullTime {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding-top: 10px;
+}
+
 .icon > img {
     display: block;
     width: 180px;
     margin: 0 auto;
+    padding-top: 20px;
+    animation: m_icon 2s ease-in-out infinite;
+}
+
+@keyframes m_icon {
+    0% {transform: translateY(0px);}
+    50% {transform: translateY(2px);}
+    100% {transform: translateY(0px);}
 }
 
 .w_id {
@@ -379,30 +415,129 @@ input {
 
 .temp {
     text-align: center;
-    font-size: 4rem;
+    font-size: 3.5rem;
     font-weight: 600;
 }
 
-aside {
-    display: flex;
-    justify-content: center;
-    width: 8%;
-    margin: 10px auto 0;
+#weather_sub {
+    width: 100%;
+    margin-top: 10vh;
+    z-index: 999 !important;
+    animation: w_sub 1.3s linear;
 }
-.temp_max,
-.temp_min {
+
+@keyframes w_sub {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+#weather_sub img {
+    width: 100px;
+}
+#weather_sub {
+    width: 85%;
+    margin: 0 auto;
+    margin-top: 18vh;
+}
+.sub_wrap {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.sub {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+.sub_wrap2 {
+    margin-top: 100px;
+}
+.sub_items > p {
+    text-align: center;
     font-size: 2rem;
-    font-weight: 600;
-    text-align: center;
-    margin: 0 10px;
+    font-weight: 500;
+    margin-top: 20px;
 }
-.hourly {
+.wind_white {
+    display: none;
+}
+.feelsLike_white {
+    display: none;
+}
+
+
+
+
+
+#weather_timezone {
+    position: absolute;
+    top: 100vh;
+    width: 100%;
+    height: 100vh;
+    background: transparent;
+    color: #fff;
+    z-index: 999 !important;
+    overflow: hidden;
+    /* display: none; */
+}
+
+.hourly_tab {
     display: flex;
+    width: 95%;
+    margin: 0 auto;
+    margin-top: 18vh;
+    overflow: scroll;
+}
+#weather_hourly {
+    margin: 0 2%;
     text-align: center;
 }
-.hourly img {
-    width: 50px;
+.hourly_time {
+    font-size: 1.5rem;
+    font-weight: 600;
 }
+.hourly_icon > img {
+    width: 60px;
+    margin: 20px 0;
+}
+.hourly_temp {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.line {
+    width: 90%;
+    margin: 70px auto;
+    border: 2px solid #fff;
+    border-radius: 50px;
+    opacity: 70%;
+}
+
+.daily_wrap {
+    display: flex;
+    width: 90%;
+    height: 400px;
+    margin: 0 auto;
+}
+#weather_daily {
+    width: 100%;
+    margin: 0 10px;
+    text-align: center;
+    font-size: 1.5rem;
+}
+.daily_day {
+    font-weight: 600;
+}
+.daily_icon {
+    margin-top: 30px;
+}
+.daily_icon > img {
+    width: 60px;
+}
+.daily_temp_max {
+    margin-top: 20px;
+}
+
 
 
 /* media query */
@@ -428,12 +563,83 @@ aside {
     .grass1 {
         bottom: -50px;
         width: 150%;
-        z-index: 996;
+        z-index: 995;
     }
     .grass2 {
         bottom: -50px;
         width: 150%;
-        z-index: 996;
+        z-index: 995;
+    }
+    #weather_sub {
+        width: 80%;
+        margin-top: 6vh;
+    }
+    #weather_sub img {
+        display: block;
+        width: 65px;
+        margin: 0 auto;
+        margin-top: 10px;
+    }
+    .sub_wrap {
+        flex-direction: column;
+        margin: 0;
+    }
+    .sub_items {
+        width: 100%;
+        margin-top: 30px;
+    }
+    .sub_items > p {
+        font-size: 1.5rem;
+        margin-top: 5px;
+    }
+
+    .hourly_tab {
+        margin-top: 12vh;
+    }
+    .line {
+        margin: 20px auto;
+    }
+    .daily_wrap {
+        flex-direction: column;
+        align-items: center;
+        width: 85%;
+    }
+    #weather_hourly {
+        margin: 0 2%;
+        text-align: center;
+    }
+    .hourly_time {
+        font-size: 1.3rem;
+        font-weight: 600;
+    }
+    .hourly_icon > img {
+        width: 50px;
+        margin: 20px 0;
+    }
+    .hourly_temp {
+        font-size: 1.2rem;
+        font-weight: 500;
+    }
+    #weather_daily {
+        display: flex;
+        justify-content: space-between;
+    }
+    #weather_daily > *{
+        width: 100%;
+        height: 45px;
+        margin: 0;
+        padding: 2px 0;
+    }
+    #weather_daily img {
+        width: 40px;
+        margin-top: 2px;
+    }
+    .daily_day, .daily_temp_max, .daily_temp_min {
+        line-height: 2;
+        font-size: 1.3rem;
+    }
+    .daily_temp_max, .daily_temp_min {
+        letter-spacing: -2px;
     }
 }
 
@@ -469,7 +675,51 @@ aside {
         bottom: -10px;
         width: 150%;
     }
-    #weather_info {
-        margin-top: 50px;
+    #weather_main {
+        margin-top: 12vh;
+    }
+    .city {
+        font-size: 2rem;
+        padding-top: 20px;
+    }
+    .icon > img {
+        width: 150px;
+        padding-top: 10px;
+    }
+    .w_id {
+        font-size: 1.8rem;
+    }
+    .temp {
+        font-size: 3rem;
+    }
+
+    .sub_items > p {
+        font-size: 1.3rem;
+    }
+    
+    .line {
+        margin: 40px auto;
+    }
+    #weather_hourly {
+        margin: 0 3%;
+    }
+    .hourly_time {
+        font-size: 1.2rem;
+    }
+    .hourly_icon > img {
+        width: 40px;
+        margin: 10px 0;
+    }
+    .hourly_temp {
+        letter-spacing: -1px;
+    }
+    #weather_daily > *{
+        height: 50px;
+    }
+    .daily_day, .daily_temp_max, .daily_temp_min {
+        font-size: 1.3rem;
+    }
+    .daily_temp_max, .daily_temp_min {
+        letter-spacing: -3px;
     }
 }
