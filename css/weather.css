@@ -13,6 +13,14 @@ body {
     display: none;
 }
 
+input { 
+    appearance: none; 
+    -moz-appearance: none; 
+    -webkit-appearance: none; 
+    border-radius: 0; 
+    -webkit-border-radius: 0; 
+    -moz-border-radius: 0;
+}
 
 a{
     text-decoration: none;
@@ -287,8 +295,6 @@ a{
     width: 250px;
     height: 50px;
     border: none;
-    border-radius: 0;
-    -webkit-border-radius: 0;
     padding-left: 5px;
     font-size: 1rem;
 }
@@ -327,7 +333,7 @@ a{
     border-bottom: none;
     border-top: none;
     font-size: 1rem;
-    z-index: 999 !important;
+    z-index: 998 !important;
 }
 
 .autocomplete-items div {
@@ -346,6 +352,60 @@ a{
     color: #ffffff;
 }
 
+/* bookmark */
+
+#bookmark {
+    position: absolute;
+    top: 80px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50px;
+    background: #fcb800;
+    z-index: 999 !important;
+}
+#bookmark:hover {
+    cursor: pointer;
+}
+#bookmark:focus {
+    outline: none;
+}
+#bookmark > i {
+    color: #fff;
+    font-size: 1.6rem;
+}
+.bm_after {
+    display: none;
+}
+/* bookmark list button */
+#bmList_btn {
+    position: absolute;
+    top: 150px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50px;
+    background: #fcb800;
+    z-index: 999 !important;
+}
+#bmList_btn:hover {
+    cursor: pointer;
+}
+#bmList_btn:focus {
+    outline: none;
+}
+#bmList_btn > i {
+    color: #fff;
+    font-size: 1.6rem;
+}
+.bmList_after {
+    display: none;
+}
+
+
+
 
 
 /* weather main */
@@ -355,12 +415,14 @@ a{
     width: 100%;
     height: 100%;
     z-index: 996;
+    display: none;
 }
 .swiper-slide {
     width: 100%;
     height: 100vh;
     z-index: 997;
 }
+
 
 #weather_main {
     width: 100%;
@@ -480,7 +542,7 @@ a{
     color: #fff;
     z-index: 999 !important;
     overflow: hidden;
-    /* display: none; */
+    display: none;
 }
 
 .hourly_tab {
